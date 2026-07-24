@@ -20,7 +20,7 @@ A simple and responsive webpage created using **HTML and CSS** as part of a web 
 
 ### Homepage
 
-![Homepage Screenshot](./screenshots/homepage.png)
+![Homepage Screenshot](./images/demo.png)
 
 ## How to Run
 
