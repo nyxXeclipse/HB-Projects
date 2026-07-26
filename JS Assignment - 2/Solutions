@@ -1,5 +1,5 @@
-Solve the questions given here -
-1. Write code to display from 1 to 100 but just even numbers.
+// Solve the questions given here -
+// 1. Write code to display from 1 to 100 but just even numbers.
 
 for (let i = 1; i <= 100; i++) {
     if (i % 2 === 0) {
@@ -7,7 +7,7 @@ for (let i = 1; i <= 100; i++) {
     }
 }
 
-2. Write a function to calculate which can add, subtract, multiply and divide two numbers. Use switch inside function.
+// 2. Write a function to calculate which can add, subtract, multiply and divide two numbers. Use switch inside function.
 
 function calculator(num1, num2, operator) {
     switch (operator) {
@@ -38,7 +38,7 @@ console.log(calculator(10, 5, "/"));
 //use prompt for manual inputs
 
 
-3. You need to write a function findTax() that takes a number type variable as an argument which is the salary of a person. You need to calculate the tax amount on his salary by using the Js switch control flow. The tax rates are given below.
+// 3. You need to write a function findTax() that takes a number type variable as an argument which is the salary of a person. You need to calculate the tax amount on his salary by using the Js switch control flow. The tax rates are given below.
 
 if 500000 >= salary > 0 then 0% tax on the entire salary.
 If 1000000 >= salary > 500000 then 10% tax on the entire salary.
@@ -76,7 +76,7 @@ console.log(findTax(800000));
 console.log(findTax(1200000));  
 console.log(findTax(2000000));  
 
-4. Write a function to perform this. You are given two numbers n1 and n2. You need to find the sum of the products of their corresponding digits. So, for a number n1= 6 and n2 = 34, you'll do (6*4)+(0*3) = 24.
+// 4. Write a function to perform this. You are given two numbers n1 and n2. You need to find the sum of the products of their corresponding digits. So, for a number n1= 6 and n2 = 34, you'll do (6*4)+(0*3) = 24.
 
 function sumOfProducts(n1, n2) {
     let str1 = String(n1);
