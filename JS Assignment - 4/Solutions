@@ -1,0 +1,140 @@
+// JS DOM Assignment - Dark Theme
+
+function swapTheme() {
+  let app = document.getElementById("app");
+  let button = document.getElementById("swap");
+
+  if (app.classList.contains("day")) {
+    app.classList.remove("day");
+    app.classList.add("night");
+
+    button.classList.remove("button_day");
+    button.classList.add("button_night");
+  } else {
+    app.classList.remove("night");
+    app.classList.add("day");
+
+    button.classList.remove("button_night");
+    button.classList.add("button_day");
+  }
+}
+
+
+
+
+// JS DOM Assignment - Div Creation
+
+function createDiv(width, height, text) {
+  // Create a new div
+  let div = document.createElement("div");
+
+  // Set width and height with px
+  div.style.width = width + "px";
+  div.style.height = height + "px";
+
+  // Set the text
+  div.textContent = text;
+
+  // Add div inside container
+  let container = document.getElementById("container");
+  container.appendChild(div);
+}
+
+// Do not change this code
+Window.createDiv = createDiv;
+
+//add css for visualization
+
+
+
+
+// JS DOM Assignment - Hide Show Para
+
+function toggleVisibility() {
+  let paragraph = document.getElementById("useless-paragraph");
+
+  paragraph.hidden = !paragraph.hidden;
+}
+
+
+
+
+// JS DOM Assignment - Dynamic - CSS
+
+// javascript code goes here
+const textContainer = document.getElementById("text-container");
+const colorBox = document.getElementById("colorbox");
+const colorChange = document.getElementById("colorchange");
+const fontSize = document.getElementById("fontsize");
+
+const italic = document.getElementById("italic");
+const underline = document.getElementById("underline");
+const bold = document.getElementById("bold");
+
+const fontList = document.getElementById("list");
+const getStyle = document.getElementById("getstyle");
+const cssProps = document.getElementById("css-props");
+
+
+// Change text color
+colorChange.addEventListener("click", function () {
+    textContainer.style.color = colorBox.value;
+});
+
+
+// Change font size
+fontSize.addEventListener("input", function () {
+    textContainer.style.fontSize = fontSize.value + "px";
+});
+
+
+// Toggle italic
+italic.addEventListener("click", function () {
+    if (textContainer.style.fontStyle === "italic") {
+        textContainer.style.fontStyle = "normal";
+    } else {
+        textContainer.style.fontStyle = "italic";
+    }
+});
+
+
+// Toggle underline
+underline.addEventListener("click", function () {
+    if (textContainer.style.textDecoration === "underline") {
+        textContainer.style.textDecoration = "none";
+    } else {
+        textContainer.style.textDecoration = "underline";
+    }
+});
+
+
+// Toggle bold
+bold.addEventListener("click", function () {
+    if (textContainer.style.fontWeight === "bold") {
+        textContainer.style.fontWeight = "normal";
+    } else {
+        textContainer.style.fontWeight = "bold";
+    }
+});
+
+
+// Change font family
+fontList.addEventListener("change", function () {
+    textContainer.style.fontFamily = fontList.value;
+});
+
+
+// Get CSS properties
+getStyle.addEventListener("click", function () {
+    let color = colorBox.value || "black";
+
+    let styles =
+        "color: " + color + "; " +
+        "font-size: " + textContainer.style.fontSize + "; " +
+        "font-family: " + textContainer.style.fontFamily + "; " +
+        "text-decoration: " + textContainer.style.textDecoration + "; " +
+        "font-style: " + textContainer.style.fontStyle + "; " +
+        "font-weight: " + textContainer.style.fontWeight + ";";
+
+    cssProps.textContent = styles;
+});
