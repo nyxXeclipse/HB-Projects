@@ -1,0 +1,232 @@
+// Q1) Create an array of states in india.
+// Remove all the names starting with vowels from the list. Use array.filter.
+
+const states = [
+  "Andhra Pradesh",
+  "Bihar",
+  "Goa",
+  "Haryana",
+  "Kerala",
+  "Maharashtra",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Uttar Pradesh",
+  "Assam",
+];
+
+const result = states.filter((state) => {
+  return !["A", "E", "I", "O", "U"].includes(state[0].toUpperCase());
+});
+
+console.log(result);
+
+// Q2) let str = 'I love my India'
+// output expected = 'India my love I'
+// Write code for this.
+
+let str = "I love my India";
+let result = str.split(" ").reverse().join(" ");
+console.log(result);
+
+// Q3) let string = 'INDIA'
+// output = 'INDONESIA'
+// Use array.splice
+
+let string = "INDIA";
+let arr = string.split("");
+arr.splice(2, 2, "O", "N", "E", "S");
+let result = arr.join("");
+console.log(result);
+
+// Q4) Take any string with minimum 20 characters. Count number of consonant and vowel in the string.
+
+let str = "JavaScript is a powerful programming language";
+let vowels = 0;
+let consonants = 0;
+for (let char of str.toLowerCase()) {
+  if (char >= "a" && char <= "z") {
+    if ("aeiou".includes(char)) {
+      vowels++;
+    } else {
+      consonants++;
+    }
+  }
+}
+console.log("Vowels:", vowels);
+console.log("Consonants:", consonants);
+
+// Q5) Write a function to replace wrong word with correct word in any sentance.
+// Like this - correctfn(string, wrong, correct)
+// Use string.replace in function.
+
+function correctfn(string, wrong, correct) {
+  return string.replace(wrong, correct);
+}
+let sentence = "I love Java.";
+let result = correctfn(sentence, "Java", "JavaScript");
+console.log(result);
+
+// Q6) inputArr = [1,2,3,9,10,7,5,4,3]
+// answer = [9, 10, 7]
+// User array.filter and return numbers greater than 5.
+
+let inputArr = [1, 2, 3, 9, 10, 7, 5, 4, 3];
+let result = inputArr.filter((num) => {
+  return num > 5;
+});
+console.log(result);
+
+// Q7)
+// const students = [
+// { name: "Ram", scores: [80, 70, 60] },
+// { name: "Mohan", scores: [80, 70, 90] },
+// { name: "Sai", scores: [60, 70, 80] },
+// { name: "Hemang", scores: [90, 90, 80, 80] },
+// ];
+// Output = [
+// { name: "Ram", average: 70 },
+// { name: "Mohan", average: 80 },
+// { name: "Sai", average: 70 },
+// { name: "Hemang", average: 85 },
+// ];
+// Use array.map and array.reduce.
+
+const students = [
+  { name: "Ram", scores: [80, 70, 60] },
+  { name: "Mohan", scores: [80, 70, 90] },
+  { name: "Sai", scores: [60, 70, 80] },
+  { name: "Hemang", scores: [90, 90, 80, 80] },
+];
+
+const result = students.map((student) => {
+  const total = student.scores.reduce((sum, score) => {
+    return sum + score;
+  }, 0);
+
+  const average = total / student.scores.length;
+
+  return {
+    name: student.name,
+    average: average,
+  };
+});
+
+console.log(result);
+
+// Q8) Write a function to find repeated sum of digits until there is only a single digit in the number.
+// Example - 456 - 4+5+6 = 15 - 1+5 = 6.
+
+function repeatedSum(num) {
+  while (num >= 10) {
+    num = String(num)
+      .split("")
+      .reduce((sum, digit) => {
+        return sum + Number(digit);
+      }, 0);
+  }
+  return num;
+}
+console.log(repeatedSum(456));
+
+// Q9) Write a function to count the number of words in a paragraph.
+
+function countWords(paragraph) {
+  return paragraph.trim().split(/\s+/).length;
+}
+let paragraph = "JavaScript is a very powerful programming language.";
+console.log(countWords(paragraph));
+
+// Q10) Write a function to reverse a string.
+// Input - Hello
+// Outpur - olleH
+
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+console.log(reverseString("Hello"));
+
+// Q11)
+// Input
+
+// [
+//     student1: {
+//         subject1: 44,
+//         subject2: 56,
+//         subject3: 87,
+//         subject4: 97,
+//         subject5: 37
+//     },
+//     student2: {
+//         subject1: 44,
+//         subject2: 56,
+//         subject3: 87,
+//         subject4: 97,
+//         subject5: 37
+//     },
+//     student3: {
+//         subject1: 44,
+//         subject2: 56,
+//         subject3: 87,
+//         subject4: 97,
+//         subject5: 37
+//     }
+// ]
+
+// Output: -
+// [
+//     student1: {
+//         average: 44
+//     },
+//     student2: {
+//         average: 44
+//     },
+//     student3: {
+//         average: 44
+//     }
+// ]
+// Write code to find average as mentioned above. Use array and object methods.
+
+const students = {
+  student1: {
+    subject1: 44,
+    subject2: 56,
+    subject3: 87,
+    subject4: 97,
+    subject5: 37,
+  },
+
+  student2: {
+    subject1: 44,
+    subject2: 56,
+    subject3: 87,
+    subject4: 97,
+    subject5: 37,
+  },
+
+  student3: {
+    subject1: 44,
+    subject2: 56,
+    subject3: 87,
+    subject4: 97,
+    subject5: 37,
+  },
+};
+
+const result = {};
+
+for (let student in students) {
+  const marks = Object.values(students[student]);
+
+  const total = marks.reduce((sum, mark) => {
+    return sum + mark;
+  }, 0);
+
+  const average = total / marks.length;
+
+  result[student] = {
+    average: average,
+  };
+}
+
+console.log(result);
